@@ -1,7 +1,14 @@
-import type { NextPage } from 'next'
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
+import { api } from 'src/services/api'
 
-const Home: NextPage = () => {
+type HomeProps = {
+  comics: any
+}
+
+const Home = ({ comics }: HomeProps) => {
+  console.log(comics)
+
   return (
     <>
       <Head>
@@ -14,6 +21,27 @@ const Home: NextPage = () => {
       </div>
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { data } = await api.get('comics', {
+    params: {
+      ts: process.env.NEXT_PUBLIC_TIMESTAMP,
+      apikey: process.env.NEXT_PUBLIC_API_KEY,
+      hash: process.env.NEXT_PUBLIC_HASH,
+      limit: 5,
+    },
+    proxy: {
+      host: '192.168.43.1',
+      port: 8080,
+    },
+  })
+
+  return {
+    props: {
+      comics: data,
+    },
+  }
 }
 
 export default Home

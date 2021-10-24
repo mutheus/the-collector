@@ -7,6 +7,12 @@ module.exports = withPWA({
     if (!isServer) {
       config.resolve.fallback.fs = false
     }
+
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    })
+
     return config
   },
   reactStrictMode: true,
@@ -15,5 +21,8 @@ module.exports = withPWA({
     register: true,
     skipWaiting: true,
     disable: process.env.NODE_ENV === 'development',
+  },
+  images: {
+    domains: ['site.org'],
   },
 })

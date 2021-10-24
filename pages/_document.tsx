@@ -32,9 +32,10 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
           <link rel="manifest" href="/manifest.json" />
-          <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
-          <meta name="theme-color" content="#111" />
+          <meta name="theme-color" content="#f2ede8" />
         </Head>
         <body>
           <Main />

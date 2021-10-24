@@ -1,6 +1,6 @@
 {
-  "short_name": "Senti",
-  "name": "Senti",
+  "short_name": "The Collector",
+  "name": "The Collector",
   "icons": [
     {
       "src": "favicon.png",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#111",
-  "background_color": "#ffffff"
+  "theme_color": "#f2ede8",
+  "background_color": "#f2ede8"
 }

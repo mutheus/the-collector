@@ -5,9 +5,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Senti</title>
-        <meta name="description" content="Senti app" />
-        <link rel="icon" href="/favicon.png" />
+        <title>The Collector | Marvel comic books for a low price</title>
+        <meta name="description" content="Access the greatest collection of Marvel comic books & expand your superhero comics collection" />
       </Head>
 
       <div>

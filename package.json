@@ -1,5 +1,5 @@
 {
-  "name": "senti",
+  "name": "the-collector",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,13 +12,16 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@material-ui/core": "^5.0.0-beta.5",
+    "@material-ui/styled-engine-sc": "^5.0.0-beta.5",
     "@types/styled-components": "^5.1.15",
+    "axios": "^0.23.0",
     "next": "11.1.2",
     "next-pwa": "^5.3.1",
     "normalize.css": "^8.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "styled-components": "^5.3.1"
+    "react-icons": "^4.3.1"
   },
   "eslintConfig": {
     "extends": "./.eslintrc.json"
@@ -33,7 +36,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-only-warn": "^1.0.3",
     "eslint-plugin-promise": "^5.1.0",
-    "husky": "^7.0.2",
+    "husky": "^7.0.4",
     "typescript": "4.4.3"
   }
 }

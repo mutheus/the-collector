@@ -1,6 +1,7 @@
 import { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import { api } from 'src/services/api'
+import { Comics } from 'src/components/comics'
 
 type ResultsType = {
   title: string
@@ -22,8 +23,6 @@ type DataType = {
 }
 
 const Home = ({ comics }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log(comics)
-
   return (
     <>
       <Head>
@@ -31,9 +30,7 @@ const Home = ({ comics }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <meta name="description" content="Access the greatest collection of Marvel comic books & expand your superhero comics collection" />
       </Head>
 
-      <div>
-        <h1>Hello, World!</h1>
-      </div>
+      <Comics comics={comics} />
     </>
   )
 }

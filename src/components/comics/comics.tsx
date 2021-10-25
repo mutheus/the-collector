@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useRef, useState } from 'react'
 import styled from 'styled-components'
 
 type ComicsType = {
@@ -19,13 +19,59 @@ const Slider = styled.div`
   justify-content: center;
   overflow: hidden;
   margin: auto 0;
+  position: relative;
+
+  > div {
+    min-width: 50vw;
+    margin: 0 2vw;
+
+    @media (min-width: 600px) {
+      min-width: 40vw;
+      margin: 0 4vw;
+    }
+  }
 `
 
 const Image = styled.img`
   width: 100%;
-  max-width: 50vw;
   border: 4px solid #070201;
-  margin: 0 2em;
+`
+
+const PrevButton = styled.div`
+  height: 100%;
+  width: 20vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+`
+
+const NextButton = styled.div`
+  height: 100%;
+  width: 20vw;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+`
+
+const PrevComic = styled.div`
+  img {
+    width: 80%;
+  }
+
+  transform: rotate(-10deg);
+`
+
+const NextComic = styled.div`
+  img {
+    width: 80%;
+    margin-left: auto;
+  }
+
+  display: flex;
+  justify-content: end;
+  transform: rotate(10deg);
 `
 
 export function Comics ({ comics }: ComicsProps) {
@@ -33,6 +79,7 @@ export function Comics ({ comics }: ComicsProps) {
   const [current, setCurrent] = useState(0)
   const [previous, setPrevious] = useState(length - 1)
   const [next, setNext] = useState(current + 1)
+  const currentRef = useRef<HTMLImageElement>(null)
 
   const handlePrevBtn = () => {
     setCurrent(current === 0 ? length - 1 : current - 1)
@@ -56,7 +103,7 @@ export function Comics ({ comics }: ComicsProps) {
 
   const currentComic = comics.map((item, index) => {
     if (index === current) {
-      return <Image key={item.id} src={item.thumbnail} alt={item.title} />
+      return <Image ref={currentRef} key={item.id} src={item.thumbnail} alt={item.title} />
     }
 
     return null
@@ -73,15 +120,22 @@ export function Comics ({ comics }: ComicsProps) {
   return (
     <>
       <Slider>
-        {previousComic}
+        <PrevComic>
+          {previousComic}
+        </PrevComic>
 
-        {currentComic}
+        <div>
+          <PrevButton onClick={handlePrevBtn} />
 
-        {nextComic}
+          {currentComic}
+
+          <NextButton onClick={handleNextBtn} />
+        </div>
+
+        <NextComic>
+          {nextComic}
+        </NextComic>
       </Slider>
-
-      <button onClick={handlePrevBtn}>prev</button>
-      <button onClick={handleNextBtn}>next</button>
     </>
   )
 }

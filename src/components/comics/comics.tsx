@@ -23,9 +23,47 @@ type MainProps = {
 
 const SliderWrapper = styled(Slider)`
   overflow: hidden;
+  margin: 4em 0;
+  position: relative;
 
   div {
     outline: none;
+  }
+
+  .slick-prev {
+    z-index: 10;
+    position: absolute;
+    width: 14vw;
+    min-height: 100%;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+  }
+
+  .slick-active.slick-current {
+    transform: rotate(-10deg);
+    transition: all 1s ease-in;
+
+    > div {
+      transform: translateY(10%);
+    }
+
+    img {
+      width: 70%;
+    }
+  }
+
+  .slick-active.slick-current + div + div {
+    transform: rotate(10deg);
+    transition: all 1s ease-in;
+
+    > div {
+      transform: translateY(10%);
+    }
+
+    img {
+      width: 70%;
+    }
   }
 `
 
@@ -46,16 +84,34 @@ const Main = styled.main<MainProps>`${({ headerHeight }) => css`
   align-items: center;
 `}`
 
+const NextBtnWrapper = styled.button`
+  position: absolute;
+  width: 14vw;
+  min-height: 100%;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+  cursor: pointer;
+`
+
+const NextButton = ({ onClick }: any) => {
+  return (
+    <NextBtnWrapper onClick={onClick} />
+  )
+}
+
 export function Comics ({ comics }: ComicsProps) {
   const { headerHeight } = useContext(AppContext)
 
   const settings = {
-    className: 'center',
-    centerMode: true,
     infinite: true,
     centerPadding: '0px',
     slidesToShow: 1.67,
-    speed: 500,
+    speed: 1000,
+    nextArrow: <NextButton />,
   }
 
   return (

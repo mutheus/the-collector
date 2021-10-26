@@ -1,33 +1,7 @@
 import { GetStaticProps } from 'next'
 import { api } from 'src/services/api'
 import styled from 'styled-components'
-
-type ResultsType = {
-  title: string
-  id: string,
-  description: string
-  thumbnail: {
-    extension: string
-    path: string
-  }
-  prices: { price: number }[]
-}
-
-type DataType = {
-  data: {
-    data: {
-      results: ResultsType[]
-    }
-  }
-}
-
-type ComicDataType = {
-  title: string
-  id: string,
-  description: string
-  thumbnail: string
-  price: number | undefined
-}
+import { ComicDataType, DataType } from 'comics'
 
 type ComicPageProps = {
   comicData: ComicDataType

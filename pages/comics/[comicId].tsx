@@ -1,21 +1,15 @@
 import { GetStaticProps } from 'next'
-import styled from 'styled-components'
 import { ComicDataType } from 'comics'
 import { fetchData, changeData, filterData } from 'src/resources/utils'
+import { ComicWrapper } from 'src/components/comic-wrapper'
 
 type ComicPageProps = {
   comicData: ComicDataType
 }
 
-const Image = styled.img`
-  width: 100%;
-  max-width: 280px;
-  margin: 0 auto;
-`
-
 export default function ComicPage ({ comicData }: ComicPageProps) {
   return (
-    <Image src={comicData.thumbnail} alt={comicData.title} />
+    <ComicWrapper comicData={comicData} />
   )
 }
 

@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { useRouter } from 'next/router'
 import styled, { css } from 'styled-components'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -7,7 +8,7 @@ import { AppContext } from 'src/contexts/app-context'
 
 type ComicsType = {
   title: string
-  id: number,
+  id: string,
   description: string
   thumbnail: string
   price: number | undefined
@@ -152,6 +153,7 @@ const NextButton = ({ onClick }: any) => {
 
 export function Comics ({ comics }: ComicsProps) {
   const { headerHeight } = useContext(AppContext)
+  const router = useRouter()
 
   const settings = {
     infinite: true,
@@ -161,11 +163,15 @@ export function Comics ({ comics }: ComicsProps) {
     nextArrow: <NextButton />,
   }
 
+  const handleComicClick = (comicId: string) => {
+    router.push(`/comics/${comicId}`)
+  }
+
   return (
     <Main headerHeight={headerHeight}>
       <SliderWrapper {...settings}>
         {comics.map((item) => (
-          <Comic key={item.id}>
+          <Comic key={item.id} onClick={() => handleComicClick(item.id)}>
             <TitleWrapper>
               <Title>{item.title}</Title>
             </TitleWrapper>

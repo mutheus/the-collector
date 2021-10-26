@@ -5,7 +5,7 @@ import { Comics } from 'src/components/comics'
 
 type ResultsType = {
   title: string
-  id: number,
+  id: string,
   description: string
   thumbnail: {
     extension: string
@@ -51,8 +51,10 @@ export const getStaticProps = async () => {
   })
 
   const rawComicsData = data.data.results.map(elem => {
+    const id = elem.id.toString() + '-' + elem.title.replace(/[^a-zA-Z0-9_]+/g, '-')
+
     return {
-      id: elem.id,
+      id: id.substr(id.length - 1) === '-' ? id.slice(0, -1) : id,
       title: elem.title,
       description: elem.description,
       thumbnail: `${elem.thumbnail.path}.${elem.thumbnail.extension}`,

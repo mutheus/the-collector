@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: system-ui, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: #f2ede8;
     color: #070201;
   }

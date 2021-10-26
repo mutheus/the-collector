@@ -36,6 +36,9 @@ class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
           <link rel="manifest" href="/manifest.json" />
           <meta name="theme-color" content="#f2ede8" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
+          <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet" />
         </Head>
         <body>
           <Main />

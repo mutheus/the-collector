@@ -23,8 +23,8 @@ type MainProps = {
 
 const SliderWrapper = styled(Slider)`
   overflow: hidden;
-  margin: 4em 0;
-  position: relative;
+  margin-top: 4em;
+  margin-bottom: 2em;
 
   div {
     outline: none;
@@ -45,11 +45,12 @@ const SliderWrapper = styled(Slider)`
     transition: all 1s ease-in;
 
     > div {
-      transform: translateY(10%);
+      transform: translateY(15%);
     }
 
     img {
       width: 70%;
+      max-width: 400px;
     }
   }
 
@@ -58,11 +59,18 @@ const SliderWrapper = styled(Slider)`
     transition: all 1s ease-in;
 
     > div {
-      transform: translateY(10%);
+      transform: translateY(15%);
     }
 
     img {
       width: 70%;
+      max-width: 400px;
+    }
+  }
+
+  .slick-active.slick-current + div {
+    h1 {
+      display: initial;
     }
   }
 `
@@ -72,9 +80,18 @@ const Image = styled.img`
 `
 
 const Comic = styled.div`
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+
   img {
     width: 80%;
+    max-width: 500px;
     margin: 0 auto;
+  }
+
+  h1 {
+    display: none;
   }
 `
 
@@ -95,6 +112,36 @@ const NextBtnWrapper = styled.button`
   margin: 0;
   border: none;
   cursor: pointer;
+`
+
+const Title = styled.h1`
+  color: #d91415;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  @media (min-width: 500px) {
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: 600px) {
+    font-size: 1.8rem;
+  }
+
+  @media (min-width: 800px) {
+    font-size: 2rem;
+  }
+`
+
+const TitleWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
 `
 
 const NextButton = ({ onClick }: any) => {
@@ -119,6 +166,10 @@ export function Comics ({ comics }: ComicsProps) {
       <SliderWrapper {...settings}>
         {comics.map((item) => (
           <Comic key={item.id}>
+            <TitleWrapper>
+              <Title>{item.title}</Title>
+            </TitleWrapper>
+
             <Image src={item.thumbnail} alt={item.title} />
           </Comic>
         ))}

@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app'
 import styled, { createGlobalStyle } from 'styled-components/macro'
 import { Header } from 'src/components/header'
+import AppContext from 'src/contexts/app-context'
 import 'normalize.css'
 
 const GlobalStyle = createGlobalStyle`
@@ -21,28 +22,18 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const AppWrapper = styled.div`
-  display: grid;
   min-height: 100vh;
-  grid-template-rows: min-content 1fr;
-`
-
-const Main = styled.main`
-  min-height: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  padding: 3em 0;
 `
 
 function MyApp ({ Component, pageProps }: AppProps) {
   return (
-    <AppWrapper>
+    <AppContext>
       <GlobalStyle />
-      <Header />
-      <Main>
+      <AppWrapper>
+        <Header />
         <Component {...pageProps} />
-      </Main>
-    </AppWrapper>
+      </AppWrapper>
+    </AppContext>
   )
 }
 

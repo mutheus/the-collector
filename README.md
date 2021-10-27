@@ -1,6 +1,6 @@
 ### 🔥 The Collector
 
-<img src="https://i.ibb.co/hHyzrMf/the-collector-store-vercel-app.png" width="600px" />
+<img src="https://i.ibb.co/x8dy0Wj/the-collector-store-vercel-app.png" width="600px" />
 
 ### 🧰 Technologies
 

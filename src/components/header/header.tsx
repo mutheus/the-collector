@@ -7,9 +7,7 @@ import Link from 'next/link'
 import { AppContext } from 'src/contexts/app-context'
 
 const HeaderWrapper = styled.header`
-  display: flex;
   padding: 1em 1.4em;
-  place-items: center;
 `
 
 const LogoWrapper = styled.div`
@@ -19,6 +17,45 @@ const Button = styled.button`
   cursor: pointer;
   border: none;
   background-color: transparent;
+`
+
+const MobileHeader = styled.div`
+  display: flex;
+  place-items: center;
+
+  @media (min-width: 600px) {
+    display: none;
+  }
+`
+
+const DesktopHeader = styled.div`
+  display: none;
+
+  @media (min-width: 600px) {
+    display: flex;
+    max-width: 60em;
+    margin: 0 auto;
+
+    > div {
+      margin: 0;
+    }
+  }
+`
+
+const Nav = styled.ul`
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 3em;
+  align-items: center;
+  margin: 0 auto;
+
+  li {
+    list-style: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+  }
 `
 
 export function Header () {
@@ -33,21 +70,43 @@ export function Header () {
 
   return (
     <HeaderWrapper ref={headerRef}>
-      <Button>
-        <HiOutlineMenuAlt2 size="24px" />
-      </Button>
+      <MobileHeader>
+        <Button>
+          <HiOutlineMenuAlt2 size="24px" />
+        </Button>
 
-      <LogoWrapper>
-        <Link href="/">
-          <a>
-            <Logo />
-          </a>
-        </Link>
-      </LogoWrapper>
+        <LogoWrapper>
+          <Link href="/">
+            <a>
+              <Logo />
+            </a>
+          </Link>
+        </LogoWrapper>
 
-      <Button>
-        <AiOutlineUser size="24px" />
-      </Button>
+        <Button>
+          <AiOutlineUser size="24px" />
+        </Button>
+      </MobileHeader>
+      <DesktopHeader>
+        <LogoWrapper>
+          <Link href="/">
+            <a>
+              <Logo />
+            </a>
+          </Link>
+        </LogoWrapper>
+
+        <Nav>
+          <li>Comics</li>
+          <li>Characters</li>
+          <li>Blog</li>
+          <li>News</li>
+        </Nav>
+
+        <Button>
+          <AiOutlineUser size="24px" />
+        </Button>
+      </DesktopHeader>
     </HeaderWrapper>
   )
 }

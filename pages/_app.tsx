@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components/macro'
 import { Header } from 'src/components/header'
 import AppContext from 'src/contexts/app-context'
 import 'normalize.css'
+import { Footer } from 'src/components/footer'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -32,6 +33,7 @@ function MyApp ({ Component, pageProps }: AppProps) {
       <AppWrapper>
         <Header />
         <Component {...pageProps} />
+        <Footer />
       </AppWrapper>
     </AppContext>
   )

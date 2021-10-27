@@ -43,6 +43,8 @@ export const Title = styled.h1`
 `
 
 export const Description = styled.p`
+  max-width: 40em;
+  margin: 0 auto;
   font-weight: 500;
 `
 
@@ -67,4 +69,16 @@ export const BuyButton = styled.button`
   svg {
     margin-left: auto;
   }
+`
+
+export const ComicType = styled.p`
+  text-align: center;
+`
+
+export const Reviews = styled.div`
+  max-width: max-content;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  gap: .3em;
 `

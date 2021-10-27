@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import { ComicDataType } from 'comics'
 import styled from 'styled-components'
 import { HiArrowSmDown } from 'react-icons/hi'
+import { MdOutlineStar } from 'react-icons/md'
 import * as S from './comic-wrapper-style'
 
 type ComicDataProps = {
@@ -29,6 +30,15 @@ export function ComicWrapper ({ comicData }: ComicDataProps) {
         </S.ImageContainer>
 
         <S.Title>{comicData.title}</S.Title>
+
+        <S.ComicType><strong>Type</strong>: Comic Book</S.ComicType>
+
+        <S.Reviews>
+          {[1, 2, 3, 4, 5].map((elem, index) => (
+            <MdOutlineStar color="#fba744" size={20} key={index} />
+          ))}
+          (50)
+        </S.Reviews>
 
         <S.BuyButton>Buy <HiArrowSmDown size={20} /></S.BuyButton>
 

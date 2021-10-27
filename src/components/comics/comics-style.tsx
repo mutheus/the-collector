@@ -137,7 +137,8 @@ export const Count = styled.div`
   margin-top: 2em;
 
   hr {
-    height: 2px;
+    height: 3px;
+    border: none;
     background-color: #070201;
     width: 100%;
   }

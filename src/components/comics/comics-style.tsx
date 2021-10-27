@@ -31,6 +31,7 @@ export const SliderWrapper = styled(Slider)`
     img {
       width: 70%;
       max-width: 400px;
+      border: 3px solid #070201;
     }
   }
 
@@ -45,10 +46,13 @@ export const SliderWrapper = styled(Slider)`
     img {
       width: 70%;
       max-width: 400px;
+      border: 3px solid #070201;
     }
   }
 
   .slick-active.slick-current + div {
+    cursor: pointer;
+
     h1 {
       display: initial;
     }
@@ -89,7 +93,7 @@ export const NextBtnWrapper = styled.button`
 `
 
 export const Title = styled.h1`
-  color: #d91415;
+  color: #070201;
   text-transform: uppercase;
   font-weight: 800;
   margin: 0 auto;

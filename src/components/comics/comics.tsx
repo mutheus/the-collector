@@ -36,13 +36,21 @@ export function Comics ({ comics }: ComicsProps) {
   return (
     <Main headerHeight={headerHeight}>
       <S.SliderWrapper {...settings}>
-        {comics.map((item) => (
+        {comics.map((item, index) => (
           <S.Comic key={item.id} onClick={() => handleComicClick(item.id)}>
             <S.TitleWrapper>
               <S.Title>{item.title}</S.Title>
             </S.TitleWrapper>
 
             <S.Image src={item.thumbnail} alt={item.title} />
+
+            <S.Count>
+              <h2>{index + 1}</h2>
+
+              <hr />
+
+              <h2>/{comics.length}</h2>
+            </S.Count>
           </S.Comic>
         ))}
       </S.SliderWrapper>

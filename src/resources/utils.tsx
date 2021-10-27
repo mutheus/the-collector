@@ -10,10 +10,6 @@ export async function fetchData (url: string, formatType?: string, orderBy?: str
       formatType,
       orderBy,
     },
-    proxy: {
-      host: '192.168.43.1',
-      port: 8080,
-    },
   })
 
   return data

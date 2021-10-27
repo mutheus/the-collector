@@ -2,8 +2,8 @@ import type { AppProps } from 'next/app'
 import styled, { createGlobalStyle } from 'styled-components/macro'
 import { Header } from 'src/components/header'
 import AppContext from 'src/contexts/app-context'
-import 'normalize.css'
 import { Footer } from 'src/components/footer'
+import 'normalize.css'
 
 const GlobalStyle = createGlobalStyle`
   html {

@@ -1,10 +1,10 @@
-import { Main } from 'src/styles'
-import { AppContext } from 'src/contexts/app-context'
 import { useContext } from 'react'
+import { AppContext } from 'src/contexts/app-context'
 import { ComicDataType } from 'comics'
-import styled from 'styled-components'
 import { HiArrowSmDown } from 'react-icons/hi'
 import { MdOutlineStar } from 'react-icons/md'
+import { Main } from 'src/styles'
+import styled from 'styled-components/macro'
 import * as S from './comic-wrapper-style'
 
 type ComicDataProps = {

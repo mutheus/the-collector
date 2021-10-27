@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import Slider from 'react-slick'
 
 export const SliderWrapper = styled(Slider)`
@@ -56,6 +56,10 @@ export const SliderWrapper = styled(Slider)`
     h1 {
       display: initial;
     }
+
+    div:last-child {
+      display: flex;
+    }
   }
 `
 
@@ -75,6 +79,10 @@ export const Comic = styled.div`
   }
 
   h1 {
+    display: none;
+  }
+
+  > div:last-child {
     display: none;
   }
 `
@@ -120,4 +128,17 @@ export const TitleWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 2em;
+`
+
+export const Count = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 14%;
+  margin-top: 2em;
+
+  hr {
+    height: 2px;
+    background-color: #070201;
+    width: 100%;
+  }
 `
